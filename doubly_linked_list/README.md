@@ -1,0 +1,19 @@
+# Challenge Title
+
+Create doubly-linked-list that has the following methods:
+
+- `insert(value)` which adds a new node with the given value to the beginning of the list
+- `append(value)` which adds a new node with the given value to the end of the list
+- `includes(value)` which returns a boolean result depending on whether that value exists as a Node’s value somewhere within the list
+- `toString()` which returns a string representing all the values in the Linked List, formatted as:
+
+`"{ a } -> { b } -> { c } -> NULL"`
+
+## Approach & Efficiency
+
+| Method | Time | Space |
+|--------|------|-------|
+| insert | O(1) | O(1) |
+| append | O(1) | O(1) |
+| includes | O(n) | O(1) |
+| toString | O(n) | O(1) |

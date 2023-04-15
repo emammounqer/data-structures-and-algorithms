@@ -8,3 +8,4 @@
 |  2      | [Array Insert Shift](./array_insert_shift/README.md)     |
 |  3      | [array-binary-search](./array_binary_search/README.md)     |
 |  5      | [linked-list](./linked_list/README.md)     |
+|  5      | [doubly-linked-list](./doubly_linked_list/README.md)     |
