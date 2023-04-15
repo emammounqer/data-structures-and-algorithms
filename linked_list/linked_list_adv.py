@@ -16,6 +16,9 @@ class LinkedList(Generic[T]):
         self.head:  Union[Node[T], None] = None
         self.length = 0
 
+    def __str__(self):
+        return self.to_string()
+
     def __iter__(self):
         curr = self.head
         while (curr is not None):
@@ -30,6 +33,9 @@ class LinkedList(Generic[T]):
             if i == index:
                 return node
         raise IndexError("Index out of range")
+
+    def __len__(self):
+        return self.length
 
     def insert(self, value: T):
         old_node = self.head
@@ -51,3 +57,35 @@ class LinkedList(Generic[T]):
             output += f"{{ {node.value} }} -> "
         output += "NONE"
         return output
+
+    def insert_multiple(self, *values: T):
+        for value in values:
+            self.insert(value)
+
+    def append(self, value: T):
+        new_node = Node(value)
+        if (self.head is None):
+            self.head = new_node
+            self.length += 1
+            return
+
+        curr = self.head
+        while (curr.next is not None):
+            curr = curr.next
+        curr.next = new_node
+        self.length += 1
+
+    def delete(self, value: T):
+        curr = self.head
+        prev = None
+
+        while (curr is not None):
+            if (curr.value == value):
+                if (prev is None):
+                    self.head = curr.next
+                else:
+                    prev.next = curr.next
+                self.length -= 1
+                return
+            prev = curr
+            curr = curr.next

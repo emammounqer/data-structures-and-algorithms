@@ -41,7 +41,7 @@ def test_linked_list_index_error(linked_list: LinkedList):
 
 
 def test_linked_list_length(linked_list: LinkedList):
-    actual = linked_list.length
+    actual = len(linked_list)
     expected = 3
     assert actual == expected
 
