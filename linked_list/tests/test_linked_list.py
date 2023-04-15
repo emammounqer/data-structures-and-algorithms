@@ -68,3 +68,30 @@ def test_linked_list_to_string(linked_list: LinkedList):
     actual = linked_list.to_string()
     expected = "{ 3 } -> { 2 } -> { 1 } -> NONE"
     assert actual == expected
+
+
+def test_linked_list_append_one():
+    actual = LinkedList()
+    actual.append(1)
+    expected = 1
+    assert actual.head is not None
+    assert actual.head.value == expected
+
+
+def test_linked_list_append_multiple():
+    actual = LinkedList()
+    actual.append(1)
+    actual.append(2)
+    actual.append(3)
+    expected = "{ 1 } -> { 2 } -> { 3 } -> NONE"
+    assert actual.to_string() == expected
+
+
+def test_linked_list_delete():
+    actual = LinkedList()
+    actual.insert(1)
+    actual.insert(2)
+    actual.insert(3)
+    actual.delete(2)
+    expected = "{ 3 } -> { 1 } -> NONE"
+    assert actual.to_string() == expected
