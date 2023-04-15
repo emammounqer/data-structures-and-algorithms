@@ -20,4 +20,4 @@ Create linked-list that has the following methods:
 
 - [Linked List](./linked_list.py)
 
-- [Linked List but little bit advance](./linked_list.py)
+- [Linked List but little bit advance](./linked_list_adv.py)
