@@ -15,3 +15,9 @@ Create linked-list that has the following methods:
 | insert | O(1) | O(1) |
 | includes | O(n) | O(1) |
 | toString | O(n) | O(1) |
+
+## Code
+
+- [Linked List](./linked_list.py)
+
+- [Linked List but little bit advance](./linked_list.py)
