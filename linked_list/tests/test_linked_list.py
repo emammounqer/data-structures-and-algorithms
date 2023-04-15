@@ -5,9 +5,9 @@ from linked_list.linked_list import LinkedList
 @pytest.fixture
 def linked_list():
     linked_list = LinkedList()
-    linked_list.insert(1)
     linked_list.insert(2)
     linked_list.insert(3)
+    linked_list.append(1)
     return linked_list
 
 
@@ -25,13 +25,10 @@ def test_linked_list_insert():
     assert actual.head.value == excepted
 
 
-def test_linked_list_insert_multiple():
-    actual = LinkedList()
-    actual.insert(1)
-    actual.insert(2)
-    actual.insert(3)
+def test_linked_list_insert_multiple(linked_list: LinkedList):
+    actual = str(linked_list)
     expected = "{ 3 } -> { 2 } -> { 1 } -> NONE"
-    assert actual.to_string() == expected
+    assert actual == expected
 
 
 def test_linked_list_length(linked_list: LinkedList):
@@ -94,4 +91,14 @@ def test_linked_list_delete():
     actual.insert(3)
     actual.delete(2)
     expected = "{ 3 } -> { 1 } -> NONE"
+    assert actual.to_string() == expected
+
+
+def test_linked_list_delete_not_found():
+    actual = LinkedList()
+    actual.insert(1)
+    actual.insert(2)
+    actual.insert(3)
+    actual.delete(5)
+    expected = "{ 3 } -> { 2 } -> { 1 } -> NONE"
     assert actual.to_string() == expected
