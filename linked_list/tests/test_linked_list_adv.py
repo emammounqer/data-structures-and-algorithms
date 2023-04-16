@@ -30,9 +30,9 @@ def test_linked_list_insert_multiple():
     actual.insert(1)
     actual.insert(2)
     actual.insert(3)
-    assert actual[0].value == 3
-    assert actual[1].value == 2
-    assert actual[2].value == 1
+    assert actual[0] == 3
+    assert actual[1] == 2
+    assert actual[2] == 1
 
 
 def test_linked_list_index_error(linked_list: LinkedList):
@@ -68,3 +68,43 @@ def test_linked_list_to_string(linked_list: LinkedList):
     actual = linked_list.to_string()
     expected = "{ 3 } -> { 2 } -> { 1 } -> NONE"
     assert actual == expected
+
+
+def test_insert_before_in_middle(linked_list: LinkedList):
+    linked_list.insert_before(2, 7)
+    assert linked_list[1] == 7
+
+
+def test_insert_before_at_head(linked_list: LinkedList):
+    linked_list.insert_before(3, 7)
+    assert linked_list[0] == 7
+
+
+def test_insert_before_at_end(linked_list: LinkedList):
+    linked_list.insert_before(1, 7)
+    assert linked_list[2] == 7
+
+
+def test_insert_before_at_not_exist(linked_list: LinkedList):
+    with pytest.raises(ValueError):
+        linked_list.insert_before(11, 7)
+
+
+def test_insert_after_in_middle(linked_list: LinkedList):
+    linked_list.insert_after(2, 7)
+    assert linked_list[2] == 7
+
+
+def test_insert_after_at_head(linked_list: LinkedList):
+    linked_list.insert_after(3, 7)
+    assert linked_list[1] == 7
+
+
+def test_insert_after_at_end(linked_list: LinkedList):
+    linked_list.insert_after(1, 7)
+    assert linked_list[3] == 7
+
+
+def test_insert_after_at_not_exist(linked_list: LinkedList):
+    with pytest.raises(ValueError):
+        linked_list.insert_after(11, 7)
