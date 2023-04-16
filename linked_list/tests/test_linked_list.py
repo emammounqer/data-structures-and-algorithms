@@ -102,3 +102,49 @@ def test_linked_list_delete_not_found():
     actual.delete(5)
     expected = "{ 3 } -> { 2 } -> { 1 } -> NONE"
     assert actual.to_string() == expected
+
+
+def test_insert_before_in_middle(linked_list: LinkedList):
+    linked_list.insert_before(2, 7)
+    expected = "{ 3 } -> { 7 } -> { 2 } -> { 1 } -> NONE"
+    assert str(linked_list) == expected
+
+
+def test_insert_before_at_head(linked_list: LinkedList):
+    linked_list.insert_before(3, 7)
+    expected = "{ 7 } -> { 3 } -> { 2 } -> { 1 } -> NONE"
+    assert str(linked_list) == expected
+
+
+def test_insert_before_at_end(linked_list: LinkedList):
+    linked_list.insert_before(1, 7)
+    expected = "{ 3 } -> { 2 } -> { 7 } -> { 1 } -> NONE"
+    assert str(linked_list) == expected
+
+
+def test_insert_before_at_not_exist(linked_list: LinkedList):
+    with pytest.raises(ValueError):
+        linked_list.insert_before(11, 7)
+
+
+def test_insert_after_in_middle(linked_list: LinkedList):
+    linked_list.insert_after(2, 7)
+    expected = "{ 3 } -> { 2 } -> { 7 } -> { 1 } -> NONE"
+    assert str(linked_list) == expected
+
+
+def test_insert_after_at_head(linked_list: LinkedList):
+    linked_list.insert_after(3, 7)
+    expected = "{ 3 } -> { 7 } -> { 2 } -> { 1 } -> NONE"
+    assert str(linked_list) == expected
+
+
+def test_insert_after_at_end(linked_list: LinkedList):
+    linked_list.insert_after(1, 7)
+    expected = "{ 3 } -> { 2 } -> { 1 } -> { 7 } -> NONE"
+    assert str(linked_list) == expected
+
+
+def test_insert_after_at_not_exist(linked_list: LinkedList):
+    with pytest.raises(ValueError):
+        linked_list.insert_after(11, 7)
