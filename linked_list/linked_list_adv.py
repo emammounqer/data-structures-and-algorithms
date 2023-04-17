@@ -31,7 +31,7 @@ class LinkedList(Generic[T]):
 
         for i, node in enumerate(self):
             if i == index:
-                return node
+                return node.value
         raise IndexError("Index out of range")
 
     def __len__(self):
@@ -44,6 +44,32 @@ class LinkedList(Generic[T]):
         new_node.next = old_node
         self.head = new_node
         self.length += 1
+
+    def insert_before(self, value: T, new_value: T):
+        new_node = Node(new_value)
+        prev = None
+        for node in self:
+            if node.value == value:
+                if prev is not None:
+                    prev.next = new_node
+                else:
+                    self.head = new_node
+                new_node.next = node
+                return
+
+            prev = node
+
+        raise ValueError("Value not found")
+
+    def insert_after(self, value: T, new_value: T):
+        new_node = Node(new_value)
+        for node in self:
+            if node.value == value:
+                new_node.next = node.next
+                node.next = new_node
+                return
+
+        raise ValueError("Value not found")
 
     def includes(self, value: T) -> bool:
         for node in self:
