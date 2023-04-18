@@ -115,3 +115,12 @@ class LinkedList(Generic[T]):
                 return
             prev = curr
             curr = curr.next
+
+    def kth_from_end(self, k: int):
+        if k < 0:
+            raise IndexError("Index must be positive")
+        if k > self.length:
+            raise IndexError("Index out of range")
+
+        index = self.length - k - 1
+        return self[index]
