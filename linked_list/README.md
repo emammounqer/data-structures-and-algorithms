@@ -37,6 +37,8 @@ Write the following methods for the Linked List class:
 | insert_after | O(n) | O(1) |
 | includes | O(n) | O(1) |
 | toString | O(n) | O(1) |
+| get_item | O(n) | O(1) |
+| kth_from_end | O(n) | O(1) |
 
 ## Code
 
