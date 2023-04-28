@@ -28,6 +28,13 @@ Write the following methods for the Linked List class:
     arguments: value, new value
     adds a new node with the given new value immediately after the first node that has the value specified
 
+- kth from end
+
+    arguments: k
+    returns the node’s value that is k places from the tail of the linked list.
+
+    You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+
 ## Approach & Efficiency
 
 | Method | Time | Space |
@@ -37,6 +44,8 @@ Write the following methods for the Linked List class:
 | insert_after | O(n) | O(1) |
 | includes | O(n) | O(1) |
 | toString | O(n) | O(1) |
+| get_item | O(n) | O(1) |
+| kth_from_end | O(n) | O(1) |
 
 ## Code
 

@@ -165,3 +165,48 @@ class LinkedList:
             curr = curr.next
         output += "NONE"
         return output
+
+    def get_item(self, index: int):
+        """
+        Get the value of the node at a given index
+
+        Args:
+            index (int): The index of the node
+
+        Returns:
+            The value of the node at the given index
+        """
+        if index < 0:
+            raise IndexError("Index must be positive")
+
+        curr = self.head
+
+        if (curr is None):
+            raise IndexError("Index out of range")
+
+        while curr is not None and index >= 0:
+            if (index == 0):
+                return curr.value
+            index -= 1
+            curr = curr.next
+
+        raise IndexError("Index out of range")
+
+    def kth_from_end(self, k: int):
+        """
+        Get the value of the node at a given index from the end of the linked list
+
+        Args:
+            k (int): The index from the end of the linked list
+
+        Returns:
+            The value of the node at the given index from the end of the linked list
+
+        """
+        if k < 0:
+            raise IndexError("Index must be positive")
+        if k > self.length:
+            raise IndexError("Index out of range")
+
+        index = self.length - k - 1
+        return self.get_item(index)

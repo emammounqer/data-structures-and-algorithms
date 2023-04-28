@@ -148,3 +148,25 @@ def test_insert_after_at_end(linked_list: LinkedList):
 def test_insert_after_at_not_exist(linked_list: LinkedList):
     with pytest.raises(ValueError):
         linked_list.insert_after(11, 7)
+
+
+@pytest.fixture
+def linked_list_two():
+    linked_list = LinkedList()
+    linked_list.insert(2)
+    linked_list.insert(8)
+    linked_list.insert(3)
+    linked_list.insert(1)
+    return linked_list
+
+
+@pytest.mark.parametrize('kth,expected', [(0, 2), (2, 3)])
+def test_kth_from_end_h(linked_list_two: LinkedList, kth, expected):
+    print(linked_list_two)
+    actual = linked_list_two.kth_from_end(kth)
+    assert actual == expected
+
+
+def test_kth_from_end_out_of_rage(linked_list_two: LinkedList):
+    with pytest.raises(IndexError):
+        linked_list_two.kth_from_end(6)
