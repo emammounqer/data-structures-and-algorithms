@@ -1,14 +1,5 @@
-from typing import Union
 
-
-class Node:
-    """
-    A node in a linked list
-    """
-
-    def __init__(self, value):
-        self.value = value
-        self.next: Union[Node, None] = None
+from linked_list.node import Node
 
 
 class LinkedList:
@@ -210,3 +201,35 @@ class LinkedList:
 
         index = self.length - k - 1
         return self.get_item(index)
+
+    @staticmethod
+    def zip_lists(list1: 'LinkedList', list2: 'LinkedList'):
+        """
+        Zip two linked lists together
+
+        Args:
+            list1 (LinkedList): The first linked list
+            list2 (LinkedList): The second linked list
+
+        Returns:
+            LinkedList: The zipped linked list
+        """
+        if list1.head is None:
+            return list2
+        if list2.head is None:
+            return list1
+
+        curr1 = list1.head
+        curr2 = list2.head
+
+        while curr1 is not None and curr2 is not None:
+            next1 = curr1.next
+            next2 = curr2.next
+
+            curr1.next = curr2
+            curr2.next = next1 or next2
+
+            curr1 = next1
+            curr2 = next2
+
+        return list1
