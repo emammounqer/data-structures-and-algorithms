@@ -28,6 +28,8 @@ Write the following methods for the Linked List class:
     arguments: value, new value
     adds a new node with the given new value immediately after the first node that has the value specified
 
+## class 07
+
 - kth from end
 
     arguments: k
@@ -35,10 +37,14 @@ Write the following methods for the Linked List class:
 
     You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
 
+## class 08
+
 - zip lists
 
     arguments: 2 linked lists
     returns a linked list with the two linked lists zipped together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list.
+
+![zip list](./whiteboard.png)
 
 ## Approach & Efficiency
 
