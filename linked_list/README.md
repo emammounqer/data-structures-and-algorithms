@@ -35,6 +35,11 @@ Write the following methods for the Linked List class:
 
     You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
 
+- zip lists
+
+    arguments: 2 linked lists
+    returns a linked list with the two linked lists zipped together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list.
+
 ## Approach & Efficiency
 
 | Method | Time | Space |
@@ -46,6 +51,7 @@ Write the following methods for the Linked List class:
 | toString | O(n) | O(1) |
 | get_item | O(n) | O(1) |
 | kth_from_end | O(n) | O(1) |
+| zip_lists | O(n) | O(1) |
 
 ## Code
 
