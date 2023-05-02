@@ -37,6 +37,8 @@ Write the following methods for the Linked List class:
 
     You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
 
+![kth from end](./whiteboard-kth.png)
+
 ## class 08
 
 - zip lists
