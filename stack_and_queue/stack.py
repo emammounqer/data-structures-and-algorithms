@@ -54,3 +54,27 @@ class Stack(Generic[T]):
         if self.top is None:
             return True
         return False
+
+    def __str__(self) -> str:
+        """
+        Return a string representation of the stack
+
+        Returns:
+            str: A string representation of the stack
+        """
+        current = self.top
+        output = ""
+        while current:
+            output += f"{current.value} -> "
+            current = current.next
+        output += "None"
+        return output
+
+    def __repr__(self) -> str:
+        """
+        Return a string representation of the stack
+
+        Returns:
+            str: A string representation of the stack
+        """
+        return f"Stack: {self.__str__()}"
