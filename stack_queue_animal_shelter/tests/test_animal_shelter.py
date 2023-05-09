@@ -1,15 +1,15 @@
 import pytest
-from stack_queue_animal_shelter.animal import Animal
+from stack_queue_animal_shelter.animal import Animal, Dog, Cat
 from stack_queue_animal_shelter.animal_shelter import AnimalShelter
 
 
 @pytest.fixture
 def shelter():
     shelter = AnimalShelter()
-    first_dog = Animal("dog", 'first dog')
-    sec_dog = Animal("dog", 'sec dog')
-    first_cat = Animal("cat", 'first cat')
-    sec_cat = Animal("cat", 'sec cat')
+    first_dog = Dog('first dog')
+    sec_dog = Dog('sec dog')
+    first_cat = Cat('first cat')
+    sec_cat = Cat('sec cat')
 
     shelter.enqueue(first_dog)
     shelter.enqueue(first_cat)
@@ -20,7 +20,7 @@ def shelter():
 
 def test_enqueue_one_animal():
     shelter = AnimalShelter()
-    new_cat = Animal("cat", 'new cat')
+    new_cat = Cat('new cat')
     shelter.enqueue(new_cat)
 
     assert shelter.animals[0] == new_cat
@@ -38,6 +38,13 @@ def test_dequeue_one_animal(shelter: AnimalShelter):
     assert len(shelter.animals) == 3
 
 
+def test_dequeue_one_of_any_animal(shelter: AnimalShelter):
+    dog = shelter.dequeue()
+    assert dog is not None
+    assert dog.name == "first dog"
+    assert len(shelter.animals) == 3
+
+
 def test_dequeue_all_animal(shelter: AnimalShelter):
     cat1 = shelter.dequeue('cat')
     cat2 = shelter.dequeue('cat')
@@ -52,3 +59,4 @@ def test_dequeue_all_animal(shelter: AnimalShelter):
 
     assert shelter.dequeue('cat') is None
     assert shelter.dequeue('dog') is None
+    assert shelter.dequeue() is None
