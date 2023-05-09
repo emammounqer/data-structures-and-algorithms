@@ -1,14 +1,7 @@
+from typing import Literal
+
+
 class Animal:
-    def __init__(self, species, name) -> None:
-        self.species = species
+    def __init__(self, species: Literal["cat", "dog"], name: str) -> None:
+        self.species: Literal["cat", "dog"] = species
         self.name = name
-
-
-class Dog(Animal):
-    def __init__(self, name):
-        super().__init__("dog", name)
-
-
-class Cat(Animal):
-    def __init__(self, name):
-        super().__init__("cat", name)
