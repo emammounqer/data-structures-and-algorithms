@@ -10,3 +10,5 @@
 |  5 - 9  | [linked-list](./linked_list/README.md)     |
 |  5      | [doubly-linked-list](./doubly_linked_list/README.md)     |
 |  10     | [stack-and-queue](./stack_and_queue/README.md)     |
+|  11     | [Queue using two Stacks](./stack_and_queue/pseudo_queue.md)     |
+|  12     | [Animal Shelter](./stack_queue_animal_shelter/README.md)     |
