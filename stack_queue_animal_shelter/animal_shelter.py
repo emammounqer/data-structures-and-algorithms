@@ -1,5 +1,5 @@
 from typing import Literal, Union
-from stack_queue_animal_shelter.animal import Animal
+from stack_queue_animal_shelter.animal import Animal, Cat, Dog
 
 
 class AnimalShelter:
@@ -10,7 +10,10 @@ class AnimalShelter:
 
     def enqueue(self, animal: Animal):
         """Add an animal to the shelter"""
-        self.animals.append(animal)
+        if isinstance(animal, (Dog, Cat)):
+            self.animals.append(animal)
+        else:
+            raise TypeError("Animal must be a Dog or Cat")
 
     def dequeue(self, pref: Union[Literal["cat", "dog"], None] = None):
         """Remove the first animal from the shelter that matches the preference, or the first animal if no preference is given"""
