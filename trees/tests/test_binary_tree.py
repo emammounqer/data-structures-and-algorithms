@@ -23,12 +23,21 @@ def tree():
     # d       e       f
 
     tree = BinaryTree()
-    tree.root = Node("a")
-    tree.root.left = Node("b")
-    tree.root.right = Node("c")
-    tree.root.left.left = Node("d")
-    tree.root.left.right = Node("e")
-    tree.root.right.left = Node("f")
+    node_a = Node("a")
+    node_b = Node("b")
+    node_c = Node("c")
+    node_a.left = node_b
+    node_a.right = node_c
+
+    node_d = Node("d")
+    node_e = Node("e")
+    node_b.left = node_d
+    node_b.right = node_e
+
+    node_f = Node("f")
+    node_c.left = node_f
+
+    tree.root = node_a
     return tree
 
 

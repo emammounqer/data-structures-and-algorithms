@@ -1,5 +1,6 @@
 import pytest
 from trees.binary_search_tree import BinarySearchTree
+from trees.node_binary_search import NodeBinarySearch as Node
 
 
 @pytest.fixture
@@ -60,3 +61,16 @@ def test_binary_search_tree_contains_false(tree: BinarySearchTree):
     assert tree.contains(8) == False
     assert tree.contains(39) == False
     assert tree.contains(66) == False
+
+
+def test_binary_search_tree_error():
+    with pytest.raises(ValueError):
+        node_50 = Node(50)
+        node_50.left = Node(51)
+        node_50.right = Node(76)
+
+
+def test_binary_search_tree_order_pre(tree: BinarySearchTree):
+    actual = tree.pre_order()
+    expected = [50, 21, 7, 40, 76, 65]
+    assert actual == expected
