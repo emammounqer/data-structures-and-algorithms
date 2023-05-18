@@ -1,5 +1,4 @@
 import pytest
-from trees.node import Node
 from trees.binary_search_tree import BinarySearchTree
 
 
@@ -25,24 +24,24 @@ def tree():
 def test_binary_search_tree_add_one():
     tree = BinarySearchTree()
     tree.add(50)
-    assert tree.root and tree.root.value == 50
+    assert tree._root and tree._root.value == 50
 
 
 def test_binary_search_tree_add_two():
     tree = BinarySearchTree()
     tree.add(50)
     tree.add(21)
-    assert tree.root and tree.root.value == 50
-    assert tree.root.left and tree.root.left.value == 21
+    assert tree._root and tree._root.value == 50
+    assert tree._root.left and tree._root.left.value == 21
 
 
 def test_binary_search_tree_add_many(tree: BinarySearchTree):
-    assert tree.root and tree.root.value == 50
-    assert tree.root.left and tree.root.left.value == 21
-    assert tree.root.right and tree.root.right.value == 76
-    assert tree.root.left.left and tree.root.left.left.value == 7
-    assert tree.root.left.right and tree.root.left.right.value == 40
-    assert tree.root.right.left and tree.root.right.left.value == 65
+    assert tree._root and tree._root.value == 50
+    assert tree._root.left and tree._root.left.value == 21
+    assert tree._root.right and tree._root.right.value == 76
+    assert tree._root.left.left and tree._root.left.left.value == 7
+    assert tree._root.left.right and tree._root.left.right.value == 40
+    assert tree._root.right.left and tree._root.right.left.value == 65
 
 
 def test_binary_search_tree_contains_true(tree: BinarySearchTree):
