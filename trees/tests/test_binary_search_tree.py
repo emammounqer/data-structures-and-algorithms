@@ -61,3 +61,9 @@ def test_binary_search_tree_contains_false(tree: BinarySearchTree):
     assert tree.contains(8) == False
     assert tree.contains(39) == False
     assert tree.contains(66) == False
+
+
+def test_binary_search_tree_change_root():
+    tree = BinarySearchTree()
+    with pytest.raises(AttributeError):
+        tree.root = Node(10)

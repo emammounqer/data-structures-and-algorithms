@@ -6,7 +6,15 @@ T = TypeVar("T")
 
 class BinaryTree(Generic[T]):
     def __init__(self):
-        self.root: Optional[Node[T]] = None
+        self._root: Optional[Node[T]] = None
+
+    @property
+    def root(self) -> Optional[Node[T]]:
+        return self._root
+
+    @root.setter
+    def root(self, value: Optional[Node[T]]):
+        self._root = value
 
     def pre_order(self) -> list[T]:
         """Returns a list of the values in the tree in pre-order."""
