@@ -1,4 +1,4 @@
-from typing import Generic, TypeVar, Union
+from typing import Generic, TypeVar, Optional
 
 T = TypeVar('T')
 
@@ -6,5 +6,5 @@ T = TypeVar('T')
 class Node(Generic[T]):
     def __init__(self, value: T) -> None:
         self.value = value
-        self.left: Union[Node[T], None] = None
-        self.right: Union[Node[T], None] = None
+        self.left: Optional[Node[T]] = None
+        self.right: Optional[Node[T]] = None
