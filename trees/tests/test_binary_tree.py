@@ -2,6 +2,18 @@ import pytest
 from trees.binary_tree import BinaryTree, Node
 
 
+def test_binary_tree_empty():
+    tree = BinaryTree()
+    assert tree.root == None
+
+
+def test_binary_tree_one_node():
+    tree = BinaryTree()
+    node = Node('a')
+    tree.root = node
+    assert tree.root == node
+
+
 @pytest.fixture
 def tree():
     #             a
