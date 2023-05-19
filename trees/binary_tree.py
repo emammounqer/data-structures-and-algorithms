@@ -6,19 +6,25 @@ T = TypeVar("T")
 
 class BinaryTree(Generic[T]):
     def __init__(self):
-        self.root: Optional[Node[T]] = None
+        self._root: Optional[Node[T]] = None
+
+    @property
+    def root(self) -> Optional[Node[T]]: return self._root
+
+    @root.setter
+    def root(self, node: Optional[Node[T]]) -> None: self._root = node
 
     def pre_order(self) -> list[T]:
         """Returns a list of the values in the tree in pre-order."""
-        return self.order(self.root, 'pre')
+        return self.order(self._root, 'pre')
 
     def in_order(self) -> list[T]:
         """Returns a list of the values in the tree in in-order."""
-        return self.order(self.root, 'in')
+        return self.order(self._root, 'in')
 
     def post_order(self) -> list[T]:
         """Returns a list of the values in the tree in post-order."""
-        return self.order(self.root, 'post')
+        return self.order(self._root, 'post')
 
     @classmethod
     def order(cls, node: Optional[Node[T]], method: Literal['pre', 'in', 'post']) -> list[T]:

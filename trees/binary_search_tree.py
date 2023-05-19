@@ -7,25 +7,33 @@ T = TypeVar("T", int, str, float, bytes, bytearray)
 
 
 class BinarySearchTree(BinaryTree[T]):
+
+    @property
+    def root(self) -> Optional[Node[T]]:
+        """Returns the root node of the tree.\n
+        read-only property, Cannot set root node on binary search tree, use `add` method instead.
+        """
+        return self._root
+
     def add(self, value: T) -> None:
         """Adds a value to the tree, maintaining the binary search tree property."""
-        if self.root is None:
-            self.root = Node(value)
+        if self._root is None:
+            self._root = Node(value, True)
         else:
-            self._add(value, self.root)
+            self._add(value, self._root)
 
     def _add(self, value: T, node: Node[T]) -> None:
         """recursive helper function for add method, adds a value to the tree, maintaining the binary search tree property."""
         if value <= node.value:
-            if (node.left is None):
-                node.left = Node(value)
+            if (node._left is None):
+                node._left = Node(value, True)
                 return
-            self._add(value, node.left)
+            self._add(value, node._left)
         else:
-            if (node.right is None):
-                node.right = Node(value)
+            if (node._right is None):
+                node._right = Node(value, True)
                 return
-            self._add(value, node.right)
+            self._add(value, node._right)
 
     def contains(self, value: T) -> bool:
         """ Returns True if the value is in the tree, False otherwise."""
