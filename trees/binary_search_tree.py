@@ -7,22 +7,10 @@ T = TypeVar("T", int, str, float, bytes, bytearray)
 
 
 class BinarySearchTree(BinaryTree[T]):
-    """A binary search tree implementation."""
-
-    @property
-    def root(self) -> Optional[Node[T]]:
-        return self._root
-
-    @root.setter
-    def root(self, node: Optional[Node[T]]):
-        """you can't set the root of a binary search tree Use the add method instead"""
-        raise AttributeError(
-            "you can't set the root of a binary search tree Use the `add` method instead")
-
     def add(self, value: T) -> None:
         """Adds a value to the tree, maintaining the binary search tree property."""
         if self.root is None:
-            self._root = Node(value)
+            self.root = Node(value)
         else:
             self._add(value, self.root)
 
