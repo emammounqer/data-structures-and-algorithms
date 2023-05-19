@@ -31,9 +31,13 @@ class BinaryTree(Generic[T]):
         """
         if node is None:
             return []
-        elif method == 'pre':
-            return ([node.value] + cls.order(node.left, method) + cls.order(node.right, method))
+
+        left_list = cls.order(node.left, method)
+        right_list = cls.order(node.right, method)
+
+        if method == 'pre':
+            return ([node.value] + left_list + right_list)
         elif method == 'in':
-            return (cls.order(node.left, method) + [node.value] + cls.order(node.right, method))
+            return (left_list + [node.value] + right_list)
         elif method == 'post':
-            return (cls.order(node.left, method) + cls.order(node.right, method) + [node.value])
+            return (left_list + right_list + [node.value])
