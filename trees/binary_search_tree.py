@@ -1,49 +1,57 @@
-from trees.node import Node
+from trees.nodes.binary_node import BinaryNode
 from trees.binary_tree import BinaryTree
-from typing import TypeVar, Optional
+from typing import TypeVar, Optional, Protocol, Any
+
+# region Typing
+
+T = TypeVar("T", bound='Comparable')
 
 
-T = TypeVar("T", int, str, float, bytes, bytearray)
+class Comparable(Protocol):
+    def __eq__(self, __value: Any) -> bool: ...
+    def __ne__(self, __value: Any) -> bool: ...
+    def __lt__(self, __value: Any) -> bool: ...
+    def __le__(self, __value: Any) -> bool: ...
+    def __gt__(self, __value: Any) -> bool: ...
+    def __ge__(self, __value: Any) -> bool: ...
+
+# endregion
 
 
 class BinarySearchTree(BinaryTree[T]):
-    """A binary search tree implementation."""
 
     @property
-    def root(self) -> Optional[Node[T]]:
+    def root(self) -> Optional[BinaryNode[T]]:
+        """Returns the root node of the tree.\n
+        read-only property, Cannot set root node on binary search tree, use `add` method instead.
+        """
         return self._root
-
-    @root.setter
-    def root(self, node: Optional[Node[T]]):
-        """you can't set the root of a binary search tree Use the add method instead"""
-        raise AttributeError(
-            "you can't set the root of a binary search tree Use the `add` method instead")
 
     def add(self, value: T) -> None:
         """Adds a value to the tree, maintaining the binary search tree property."""
-        if self.root is None:
-            self._root = Node(value)
+        if self._root is None:
+            self._root = BinaryNode(value, True)
         else:
-            self._add(value, self.root)
+            self._add(value, self._root)
 
-    def _add(self, value: T, node: Node[T]) -> None:
+    def _add(self, value: T, node: BinaryNode[T]) -> None:
         """recursive helper function for add method, adds a value to the tree, maintaining the binary search tree property."""
         if value <= node.value:
-            if (node.left is None):
-                node.left = Node(value)
+            if (node._left is None):
+                node._left = BinaryNode(value, True)
                 return
-            self._add(value, node.left)
+            self._add(value, node._left)
         else:
-            if (node.right is None):
-                node.right = Node(value)
+            if (node._right is None):
+                node._right = BinaryNode(value, True)
                 return
-            self._add(value, node.right)
+            self._add(value, node._right)
 
     def contains(self, value: T) -> bool:
         """ Returns True if the value is in the tree, False otherwise."""
         return self._contains(value, self.root)
 
-    def _contains(self, value: T, node: Optional[Node[T]]) -> bool:
+    def _contains(self, value: T, node: Optional[BinaryNode[T]]) -> bool:
         """recursive helper function for contains method, returns True if the value is in the tree, False otherwise."""
         if node is None:
             return False
