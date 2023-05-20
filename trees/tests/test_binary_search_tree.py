@@ -1,6 +1,10 @@
 import pytest
-from trees.node import Node
 from trees.binary_search_tree import BinarySearchTree
+
+
+class Person:
+    def __init__(self) -> None:
+        pass
 
 
 @pytest.fixture
@@ -11,7 +15,7 @@ def tree():
     # ____|____       ____|
     # 7       40      65
 
-    tree = BinarySearchTree[int]()
+    tree = BinarySearchTree()
     tree.add(50)
     tree.add(21)
     tree.add(76)

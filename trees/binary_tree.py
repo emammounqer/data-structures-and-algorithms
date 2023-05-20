@@ -1,4 +1,4 @@
-from trees.node import Node
+from trees.nodes.binary_node import BinaryNode
 from typing import Generic, TypeVar, Optional
 
 T = TypeVar("T")
@@ -6,14 +6,18 @@ T = TypeVar("T")
 
 class BinaryTree(Generic[T]):
     def __init__(self):
-        self._root: Optional[Node[T]] = None
+        self._root: Optional[BinaryNode[T]] = None
 
     # region Properties
     @property
-    def root(self) -> Optional[Node[T]]: return self._root
+    def root(self) -> Optional[BinaryNode[T]]: return self._root
 
     @root.setter
-    def root(self, node: Optional[Node[T]]) -> None: self._root = node
+    def root(self, node: Optional[BinaryNode[T]]) -> None:
+        if isinstance(node, BinaryNode):
+            self._root = node
+        else:
+            raise TypeError("root must be of type BinaryNode")
     # endregion
 
     # region Methods
@@ -32,21 +36,21 @@ class BinaryTree(Generic[T]):
 
     # region Static Methods
     @classmethod
-    def pre_order_from(cls, node: Optional[Node[T]]) -> list[T]:
+    def pre_order_from(cls, node: Optional[BinaryNode[T]]) -> list[T]:
         """Returns a list of the values in the tree in pre-order, starting from the given node."""
         if node is None:
             return []
         return ([node.value] + cls.pre_order_from(node.left) + cls.pre_order_from(node.right))
 
     @classmethod
-    def in_order_from(cls, node: Optional[Node[T]]) -> list[T]:
+    def in_order_from(cls, node: Optional[BinaryNode[T]]) -> list[T]:
         """Returns a list of the values in the tree in in-order, starting from the given node."""
         if node is None:
             return []
         return (cls.in_order_from(node.left) + [node.value] + cls.in_order_from(node.right))
 
     @classmethod
-    def post_order_from(cls, node: Optional[Node[T]]) -> list[T]:
+    def post_order_from(cls, node: Optional[BinaryNode[T]]) -> list[T]:
         """Returns a list of the values in the tree in post-order, starting from the given node."""
         if node is None:
             return []

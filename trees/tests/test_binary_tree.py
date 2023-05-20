@@ -1,5 +1,5 @@
 import pytest
-from trees.binary_tree import BinaryTree, Node
+from trees.binary_tree import BinaryTree, BinaryNode
 
 
 def test_binary_tree_empty():
@@ -9,7 +9,7 @@ def test_binary_tree_empty():
 
 def test_binary_tree_one_node():
     tree = BinaryTree()
-    node = Node('a')
+    node = BinaryNode('a')
     tree.root = node
     assert tree.root == node
 
@@ -23,12 +23,12 @@ def tree():
     # d       e       f
 
     tree = BinaryTree()
-    tree.root = Node("a")
-    tree.root.left = Node("b")
-    tree.root.right = Node("c")
-    tree.root.left.left = Node("d")
-    tree.root.left.right = Node("e")
-    tree.root.right.left = Node("f")
+    tree.root = BinaryNode("a")
+    tree.root.left = BinaryNode("b")
+    tree.root.right = BinaryNode("c")
+    tree.root.left.left = BinaryNode("d")
+    tree.root.left.right = BinaryNode("e")
+    tree.root.right.left = BinaryNode("f")
     return tree
 
 
