@@ -4,7 +4,7 @@ from trees.binary_tree import BinaryTree, Node
 
 def test_binary_tree_empty():
     tree = BinaryTree()
-    assert tree.root == None
+    assert tree.root is None
 
 
 def test_binary_tree_one_node():
