@@ -29,3 +29,5 @@ create tow classes
 - [Binary Tree](./binary_tree.py)
 
 - [Binary Search Tree](./binary_search_tree.py)
+
+- [k-ary Tree](./k_ary_tree.py)
