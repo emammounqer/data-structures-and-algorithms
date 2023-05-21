@@ -14,6 +14,16 @@ create tow classes
     - add: add new node to the tree
     - contains: check if the value is in the tree or not
 
+## class 16
+
+- find maximum value in binary tree
+  - arguments: none
+  - return: maximum value in the tree
+
+## whiteboard
+
+![whiteboard](./wb_max_value.png)
+
 ## Approach & Efficiency
 
 | Method | Time | Space |
@@ -23,6 +33,7 @@ create tow classes
 | post_order | O(n) | O(1) |
 | add | O(log n) | O(1) |
 | contains | O(log n) | O(1) |
+| max_value | O(n) | O(n) |
 
 ## Code
 
