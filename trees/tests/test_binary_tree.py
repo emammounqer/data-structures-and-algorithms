@@ -48,3 +48,27 @@ def test_binary_tree_post_order(tree: BinaryTree):
     actual = tree.post_order()
     expected = ["d", "e", "b", "f", "c", "a"]
     assert actual == expected
+
+
+def test_binary_tree_max_value():
+    tree = BinaryTree()
+    with pytest.raises(ValueError):
+        tree.max_value()
+
+
+def test_binary_tree_max_value_one_node():
+    tree = BinaryTree()
+    tree.root = BinaryNode(1)
+    assert tree.max_value() == 1
+
+
+def test_binary_tree_max_value_multiple_nodes():
+    tree = BinaryTree()
+    tree.root = BinaryNode(1)
+    tree.root.left = BinaryNode(2)
+    tree.root.right = BinaryNode(21)
+    tree.root.left.left = BinaryNode(7)
+    tree.root.left.right = BinaryNode(7)
+    tree.root.right.left = BinaryNode(6)
+
+    assert tree.max_value() == 21
