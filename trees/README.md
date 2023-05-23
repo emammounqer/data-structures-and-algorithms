@@ -20,9 +20,18 @@ create tow classes
   - arguments: none
   - return: maximum value in the tree
 
-## whiteboard
-
+**whiteboard:**
 ![whiteboard](./wb_max_value.png)
+
+## class 17
+
+Write function that traverse binary array by Breadth-first approach
+
+Arguments: tree
+Returns: list of tree value
+
+**whiteboard:**
+![whiteboard](./wb_breadth_first.png)
 
 ## Approach & Efficiency
 
@@ -34,6 +43,7 @@ create tow classes
 | add | O(log n) | O(1) |
 | contains | O(log n) | O(1) |
 | max_value | O(n) | O(n) |
+| breadth_first | O(n) | O(n) |
 
 ## Code
 
