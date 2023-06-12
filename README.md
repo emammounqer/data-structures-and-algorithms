@@ -14,3 +14,4 @@
 |  12     | [Animal Shelter](./stack_queue_animal_shelter/README.md)     |
 |  13     | [stack queue brackets](./stack_queue_brackets/README.md)     |
 |  14 -17 | [trees](./trees/README.md)     |
+|  26     | [insertion sort](./sorting/insertion/README.md)     |
