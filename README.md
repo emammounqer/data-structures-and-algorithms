@@ -15,3 +15,5 @@
 |  13     | [stack queue brackets](./stack_queue_brackets/README.md)     |
 |  14 -17 | [trees](./trees/README.md)     |
 |  26     | [insertion sort](./sorting/insertion/README.md)     |
+|  27     | [merge sort](./sorting/merge/README.md)     |
+|  30     | [hashtable](./hashtable/README.md)     |
