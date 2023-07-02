@@ -17,3 +17,4 @@
 |  26     | [insertion sort](./sorting/insertion/README.md)     |
 |  27     | [merge sort](./sorting/merge/README.md)     |
 |  30     | [hashtable](./hashtable/README.md)     |
+|  31     | [repeated word](./hashtable/Repeated_Wrod.md)     |
