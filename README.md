@@ -18,3 +18,4 @@
 |  27     | [merge sort](./sorting/merge/README.md)     |
 |  30     | [hashtable](./hashtable/README.md)     |
 |  31     | [repeated word](./hashtable/Repeated_Wrod.md)     |
+|  32     | [tree intersection](./tree_intersection/tree_intersection.md)     |
