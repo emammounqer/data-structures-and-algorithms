@@ -19,5 +19,5 @@
 |  30     | [hashtable](./hashtable/README.md)     |
 |  31     | [repeated word](./hashtable/Repeated_Wrod.md)     |
 |  32     | [tree intersection](./tree_intersection/tree_intersection.md)     |
-|  33     | [left join](./hashtable/left_join.md)     |
+|  33     | [left join](./hashmap_left_join/README.md)     |
 |  35     | [graph](./graph/README.md)     |
