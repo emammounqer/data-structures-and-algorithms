@@ -10,7 +10,7 @@ Implement a breadth-first traversal on a graph.
 
 ## Approach & Efficiency
 
-- Time: O(n)
+- Time: O(n + v)
 - Space: O(n)
 
 ## Code
