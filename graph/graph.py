@@ -1,4 +1,5 @@
 from typing import Generic, TypeVar, Optional
+from stack_and_queue.queue import Queue 
 from .vertex import Vertex
 from .edge import Edge
 
@@ -42,6 +43,30 @@ class Graph(Generic[T]):
     def size(self) -> int:
         """Returns the number of vertices in the graph"""
         return len(self._adjacency_list)
+
+    def breadth_first(self, vertex: Optional[Vertex[T]]) -> list[Vertex[T]]:
+        """Returns a list of all the vertices in the graph in breadth first order"""
+        if vertex is None:
+            return []
+        
+        traverse_list = []
+        queue  = Queue[Vertex]()
+        queue.enqueue(vertex)
+        visited_vertex = set([vertex])
+
+        while not queue.is_empty():
+            curr = queue.dequeue()
+            traverse_list.append(curr)
+
+            neighbors = self._adjacency_list[curr]
+
+            for neighbor in neighbors:
+                if neighbor.vertex not in visited_vertex:
+                    queue.enqueue(neighbor.vertex)
+                    visited_vertex.add(neighbor.vertex)
+
+        return traverse_list
+
 
     def __str__(self):
         output = '\n'
