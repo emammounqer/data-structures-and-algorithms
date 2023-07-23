@@ -1,5 +1,5 @@
 from typing import Generic, TypeVar, Optional
-from stack_and_queue.queue import Queue 
+from stack_and_queue.queue import Queue
 from .vertex import Vertex
 from .edge import Edge
 
@@ -48,9 +48,9 @@ class Graph(Generic[T]):
         """Returns a list of all the vertices in the graph in breadth first order"""
         if vertex is None:
             return []
-        
+
         traverse_list = []
-        queue  = Queue[Vertex]()
+        queue = Queue[Vertex]()
         queue.enqueue(vertex)
         visited_vertex = set([vertex])
 
@@ -67,6 +67,10 @@ class Graph(Generic[T]):
 
         return traverse_list
 
+    def get_vertex(self, value: T) -> Optional[Vertex[T]]:
+        for vertex in self._adjacency_list.keys():
+            if vertex.value == value:
+                return vertex
 
     def __str__(self):
         output = '\n'
