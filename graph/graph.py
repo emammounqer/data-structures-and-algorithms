@@ -72,6 +72,23 @@ class Graph(Generic[T]):
             if vertex.value == value:
                 return vertex
 
+    def graph_depth(self, root: Optional[Vertex[T]]):
+        '''Returns a list of all the vertices in the graph in depth first order'''
+        if root is None:
+            return []
+        visited = set([root])
+        traversed = [root.value]
+
+        def rec(node: Vertex[T]):
+            neighbors = self.get_neighbors(node)
+            for edge in neighbors:
+                if not edge.vertex in visited:
+                    traversed.append(edge.vertex.value)
+                    visited.add(edge.vertex)
+                    rec(edge.vertex)
+        rec(root)
+        return traversed
+
     def __str__(self):
         output = '\n'
         for vertex in self._adjacency_list.keys():
