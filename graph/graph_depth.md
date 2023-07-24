@@ -10,8 +10,8 @@ Conduct a depth first pre-order traversal on a graph
 
 ## Approach & Efficiency
 
-- Time: O(n)
-- Space: O(1)
+- Time: O(n + v)
+- Space: O(n)
 
 ## Code
 
